@@ -1,39 +1,11 @@
-const express = require('express')
-const path = require('path')
-const hbs = require("hbs")
-const collection = require("./mongodb")
-const app=express();
-app.use(express.json())
-
-const templatePath = path.join(__dirname, './templates')
-
-app.set("view engine", "hbs")
-app.set("views", templatePath)
-app.use(express.urlencoded({extended:false}))
-
+const express = require("express")
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.get('/', (req,res) => {
-    res.render('login')
+    res.send('Hello form github push new update')
 })
 
-app.get('/signup', (req,res) => {
-    res.render('signup')
-})
-
-app.post("/signup",async (req,res) =>{
-
-    const data ={
-        name:req.body.name,
-        password:req.body.password
-    }
-
-    await collection.insertMany([data])
-
-    res.render("home")
-})
-
-
-const PORT = 3000;
-app.listen(PORT, ()=>{
-    console.log('Port Connected')
-})
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
