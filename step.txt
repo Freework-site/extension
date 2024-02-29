@@ -1,6 +1,0 @@
-Create a resource group and select region which is close to your area
-create app service plan and make sure select best region
-create app service
-create github repo
-connect github to azure
-
