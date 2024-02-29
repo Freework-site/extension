@@ -9,7 +9,7 @@ app.use(cors()); // Add this line to enable CORS
 // Endpoint to receive data from the frontend
 
 app.post('/', (req,res) => {
-    res.render("Hello")
+    res.render("Hello buddy")
 })
 app.post('/data', (req, res) => {
     console.log('Data received:', req.body);
